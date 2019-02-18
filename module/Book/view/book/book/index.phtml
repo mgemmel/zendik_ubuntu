@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <h3>Zoznam kníh</h3>
+    </div>
+    <div class="row">
+        <p><a class="btn btn-success pull-left" href="/book/add">Pridať knihu</a></p>
+    </div>
+    <div class="row">
+        <br>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Názov</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Dátum vydania</th>
+                <th scope="col">Cena (€)</th>
+                <th scope="col">Kategória</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody style="cursor: pointer">
+            <?php if (count($this->books) > 0): ?>
+                <?php foreach ($this->books as $book): ?>
+                    <tr onclick="odkazFunkcia(this)" id=<?= $book->getId() ?>>
+                        <th><?php echo $book->getId() ?></th>
+                        <td><?php echo $book->getNazov() ?></td>
+                        <td><?php echo $book->getAutor() ?></td>
+                        <td><?php echo $book->getDatum() ?></td>
+                        <td><?php echo $book->getCena() ?></td>
+                        <td><?php echo $book->getKategoria() ?></td>
+                    <tr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <tr>
+                    <th>Žiadne záznamy</th>
+                </tr>
+            <?php endif; ?>
+
+            </tbody>
+        </table>
+        <script>
+            function odkazFunkcia(riadok) {
+                window.location.pathname = '/book/detail/' + riadok.id;
+            }
+        </script>
+
+    </div>
+</div>

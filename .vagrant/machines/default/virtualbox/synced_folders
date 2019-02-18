@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/var/www/zendik","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}},"virtualbox":{"/var/www/zendik":{"type":"virtualbox","guestpath":"/var/www/zendik","hostpath":"/var/www/zendik","disabled":false,"__vagrantfile":true}}}

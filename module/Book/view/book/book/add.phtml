@@ -1,0 +1,78 @@
+<?php
+$form = $this->form;
+$form->get('nazov')->setAttributes([
+    'class' => 'form-control',
+    'placeholder' => 'Názov'
+]);
+$form->get('autor')->setAttributes([
+    'class' => 'form-control',
+    'placeholder' => 'Meno autora'
+]);
+$form->get('datum')->setAttributes([
+    'class' => 'form-control'
+]);
+$form->get('popis')->setAttributes([
+    'class' => 'form-control',
+    'placeholder' => 'Sem napíšte popis...',
+    'rows' => 3,
+    'style' => 'resize:none'
+]);
+$form->get('cena')->setAttributes([
+    'class' => 'form-control',
+    'placeholder' => 'Cena knihy'
+]);
+$form->get('kategoria')->setAttributes([
+    'class' => 'form-control'
+]);
+$form->get('submit')->setAttributes(['class' => 'btn btn-success']);
+$form->prepare();
+
+?>
+
+<div class="container">
+    <h3> <?= $this->message ?></h3>
+    <h2>Pridať knihu do DB</h2>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+                    <div align="center" style="text-align: left">
+
+
+                        <?= $this->form()->openTag($form); ?>
+
+                        <?= $this->formRow($form->get('csrf')); ?>
+
+
+                        <div class="form-group">
+                            <?= $this->formRow($form->get('nazov')); ?>
+                        </div>
+                        <div class="form-group">
+                            <?= $this->formRow($form->get('autor')) ?>
+                        </div>
+                        <div class="form-group">
+                            <?= $this->formRow($form->get('datum')) ?>
+                        </div>
+                        <div class="form-group">
+                            <?= $this->formRow($form->get('popis')) ?>
+                        </div>
+                        <div class="form-group">
+                            <?= $this->formRow($form->get('cena')) ?>
+                        </div>
+                        <div class="form-group">
+                            <?= $this->formRow($form->get('kategoria')) ?>
+                        </div>
+                        <div class="form-group">
+                            <?= $this->formRow($form->get('submit')) ?>
+                            <a class="btn btn-primary" href="/book/index">Zrušiť</a>
+                        </div>
+                        <?= $this->form()->closeTag(); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
