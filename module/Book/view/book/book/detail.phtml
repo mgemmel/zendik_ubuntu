@@ -1,0 +1,53 @@
+<?php if ($this->book): ?>
+    <?php
+    $form = $this->form;
+    $form->get('id')->setAttributes([
+        'value' => $this->book->getId()
+    ]);
+    $form->get('submit')->setAttributes([
+        'class' => 'btn btn-danger',
+        'value' => 'Vymazať',
+        'onclick'=> 'return confirm(\'Naozaj chcete vymazať knihu '.$this->book->getNazov().' ?\')'
+    ]);
+    $form->prepare();
+    ?>
+    <div class="container">
+        <div class="form-group">
+
+            <a class="btn btn-primary" href="/book/index">Naspäť na zoznam <span
+                        class="glyphicon glyphicon-backward"></span></a>
+            <a class="btn btn-success" href="/book/edit/<?$this->book->getId()  ?>">Upraviť <span
+                        class="glyphicon glyphicon-edit"></span></a>
+            <!-- <a class="btn btn-danger" href="/book/delete/<? /*= $this->book->getId()*/ ?>">Vymazať</a>-->
+            <?= $this->form()->openTag($form); ?>
+            <?= $this->formRow($form->get('csrf')); ?>
+            <?= $this->formRow($form->get('id')); ?>
+            <br>
+            <?= $this->formRow($form->get('submit')); ?>
+            <?= $this->form()->closeTag(); ?>
+            <!--<button onclick="return confirm('Naozaj chcete vymazať knihu <?/*= $this->book->getNazov() */?> ?')"
+                    class="btn btn-danger" type="submit">
+                Vymazať <span class="glyphicon glyphicon-trash"></span></button>-->
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="well-sm">
+                        <div class="panel-body">
+                            <div class="form-group-lg" align="center" style="text-align: left">
+                                <h2> <?php echo $this->book->getNazov() ?></h2>
+                                Autor: <b><?= $this->book->getAutor() ?></b><br>
+                                Dátum vydania: <b><?= $this->book->getDatum() ?></b><br>
+                                Popis: <b><?= $this->book->getPopis() ?></b><br>
+                                Cena: <b><?= $this->book->getCena() ?></b><br>
+                                Kategoria: <b><?= $this->book->getKategoria() ?></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php else: ?>
+    <h1>Záznam sa nenašiel :(</h1>
+<?php endif; ?>

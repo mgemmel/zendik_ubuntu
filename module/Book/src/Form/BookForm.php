@@ -46,6 +46,10 @@ class BookForm extends Form
             ],
         ]);
         $this->add([
+            'type' => 'hidden',
+            'name' => 'id'
+        ]);
+        $this->add([
             'type' => Text::class,
             'name' => 'autor',
             'options' => [

@@ -24,7 +24,9 @@ $form->get('cena')->setAttributes([
 $form->get('kategoria')->setAttributes([
     'class' => 'form-control'
 ]);
-$form->get('submit')->setAttributes(['class' => 'btn btn-success']);
+$form->get('submit')->setAttributes([
+    'class' => 'btn btn-success'
+]);
 $form->prepare();
 
 ?>
@@ -39,11 +41,9 @@ $form->prepare();
                 <div class="panel-body">
                     <div align="center" style="text-align: left">
 
-
                         <?= $this->form()->openTag($form); ?>
 
                         <?= $this->formRow($form->get('csrf')); ?>
-
 
                         <div class="form-group">
                             <?= $this->formRow($form->get('nazov')); ?>

@@ -5,6 +5,7 @@ namespace Book\Factory;
 
 
 use Book\Controller\BookController;
+use Book\Entity\Book;
 use Book\Form\BookForm;
 use Interop\Container\ContainerInterface;
 use Interop\Container\Exception\ContainerException;
@@ -31,6 +32,6 @@ class BookFactory implements FactoryInterface
     {
         $entityManager = $container->get('doctrine.entitymanager.orm_default');
         $bookForm = $container->get(BookForm::class);
-        return new BookController($entityManager, $bookForm);
+        return new BookController($entityManager, $bookForm, new Book());
     }
 }

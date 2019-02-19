@@ -1,0 +1,11 @@
+<div class="container">
+    <h2> Naozaj chcete vymazať knihu <?php echo $this->book->getNazov() ?> ???</h2>
+    <div class="form-group">
+        <a class="btn btn-primary" href="/book/index">Naspäť na zoznam</a>
+        <a class="btn btn-success" href="/book/edit/<?= $this->book->getId() ?>">Upraviť</a>
+        <a class="btn btn-danger" href="/book/delete/<?= $this->book->getId() ?>">Vymazať</a>
+    </div>
+
+
+
+</div>
